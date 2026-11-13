@@ -9,6 +9,8 @@ const notFound=require("./src/middleware/not-found.middleware");
 const errorFound=require("./src/middleware/error.middleware");
 const mongoose=require("mongoose")
 const serviceRoutes=require("./src/modules/services/service.routes")
+const projectRoutes=require("./src/modules/projects/project.routes")
+const quoteRoutes=require("./src/modules/quotes/quotes.routes")
 
 const app=express();
 
@@ -58,8 +60,13 @@ app.use(cookieParser())
 
 //service api
 app.use('/api/v1/service',serviceRoutes)
+//project api
+app.use('/api/v1/project',projectRoutes)
+//quotes api
+app.use('/api/v1/quote',quoteRoutes)
 
 //health checkup
+
 
 
 app.get("/api/v1/health", (req, res) => {
